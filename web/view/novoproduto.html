@@ -1,0 +1,79 @@
+      <div class="geral box-info">
+
+        <div class="box-header with-border">
+          <h3 class="box-title">Cadastro de novo produto</h3>
+        </div>
+
+         <form name="cadastroNovoProdutoForm">
+                <div class="box-body">
+            <div class="form-group text-left">
+                <label for="labelNomeProduto">Nome produto</label>
+                <input type="text" class="form-control" ng-model="produto.nome" name = "nome" id="inputNomeProduto" placeholder="Digite aqui o nome do produto!" ng-required="true">
+            </div>
+    
+            <div class="form-group text-left">
+                <label for="labelDescricaoProduto">Descrição do produto</label>
+                <textarea class="form-control"  ng-model="produto.descricao" name = "descricao" id="inputDescricaoProduto" rows="3" ng-required="true" ></textarea>
+            </div>
+    
+            <div class ="form-row">
+                <div class="form-group col-md-6">
+                    <label for="labelFatorProduto">Fator do produto</label>
+                    <select class="form-control" id="selectFatorProduto" name = "fator" ng-model="produto.fator" ng-required="true">
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="labelIdProduto">Id Produto</label>
+                    <input type="text" class="form-control" ng-model="produto.idproduto" name = "idproduto" id="inputIdProduto" placeholder="Id do produto" ng-required="true">
+                </div>
+    
+                <div class="form-group col-md-6">
+                    <label for="labelValorProduto">Valor do produto</label>
+                    <input type="text" class="form-control" ng-model="produto.valor" name = "valor" id="inputValorProduto" placeholder="R$" ng-required="true"  ng-pattern="/^[0-9]+(\,[0-9]{1,2})?$/">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <input type="file" name="file" onchange="angular.element(this).scope().photoChanged(this.files)" />
+                    <img ng-src="{{ thumbnail.dataUrl }}" /> <!--Display the image -->
+                </div>
+            </div>  
+    
+
+    </div>
+        </form> 
+
+        <div ng-show="cadastroNovoProdutoForm.nome.$error.required && cadastroNovoProdutoForm.nome.$dirty" class="alert alert-danger">
+            Por favor, preencha o campo nome do produto!
+        </div>
+
+        <div ng-show="cadastroNovoProdutoForm.descricao.$error.required && cadastroNovoProdutoForm.descricao.$dirty" class="alert alert-danger">
+            Por favor, preencha o campo descricao do produto!
+        </div>    
+    
+        <div ng-show="cadastroNovoProdutoForm.fator.$error.required && cadastroNovoProdutoForm.fator.$dirty" class="alert alert-danger">
+            Por favor, selecione um fator para o produto.
+        </div>
+
+        <div ng-show="cadastroNovoProdutoForm.idproduto.$error.required && cadastroNovoProdutoForm.idproduto.$dirty" class="alert alert-danger">
+            Por favor, preencha um idproduto para o produto.
+        </div>
+
+        <div ng-show="cadastroNovoProdutoForm.valor.$error.required && cadastroNovoProdutoForm.valor.$dirty" class="alert alert-danger">
+            Por favor, preencha um valor para o produto.
+        </div>
+
+        <div ng-show="cadastroNovoProdutoForm.valor.$error.pattern" class="alert alert-danger">
+            Por favor, preencha corretamente o valor. EX: 9,99
+        </div>
+        <div class="box-footer">
+        <button ng-click= "cadastraNovoProduto(produto)"class="btn btn-primary btn-block" ng-disabled="cadastroNovoProdutoForm.$invalid">Cadastrar produto</button>
+        </div>
+        <div class="alert alert-success" ng-show="sucesso">
+            {{message}}
+        </div> 
+        
+    </div> 

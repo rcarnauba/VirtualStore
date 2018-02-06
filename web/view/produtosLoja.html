@@ -1,0 +1,19 @@
+
+
+    <div class="box-body album" >
+        <div class="row">    
+            <div ng-controller="produtoController" class="card" ng-repeat="produto in produtos | filter:buscaFiltro" >    
+                <img ng-src= "{{produto.ImagemProduto}}" class="img-fluid img-thumbnail" alt="Responsive image">
+                <p class="card-text">{{produto.Descricao}}</p>
+                <p class="card-text">{{produto.Valor | currency}}</p>
+                <a  class= "btn btn-primary"  ng-controller="carrinhoController" ng-click="AdicionarCarrinho(produto)" >Adicionar ao carrinho</a>
+            </div>
+
+            <div class="alert alert-danger" ng-show="SemItensCadastrados">
+                    {{message}}
+            </div> 
+
+        </div>
+    </div>
+
+    

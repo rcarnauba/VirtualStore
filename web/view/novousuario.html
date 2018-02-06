@@ -1,0 +1,52 @@
+
+    <div class="geral box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Cadastro de novo usuário</h3>
+            </div>
+            <form class="form-horizontal" name="cadastroNovoUsuarioForm">
+                <div class="box-body">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="labelEmail">Email</label>
+                            <input type="email" class="form-control" ng-model="usuario.email" id="inputEmail" placeholder="EX: joao123@email.com" ng-required="true" ng-maxlenth=50>
+                        </div>
+                        <div class="form-group col-md-6">
+                                <label for="labelSenha">Senha</label>
+                                <input type="password" class="form-control" ng-model="usuario.senha" id="inputSenha"ng-required="true" ng-maxlenth=10>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="labelNome">Nome</label>
+                        <input type="text" class="form-control" ng-model="usuario.nome" id="inputNome" ng-required="true" ng-maxlenth=30>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="labelCpf">Cpf</label>
+                        <input type="text" class="form-control" ng-model="usuario.cpf" id="inputCpf" ng-required="true" ng-maxlenth=10>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="labelEndereco">Endereço</label>
+                        <input type="text" class="form-control" ng-model="usuario.endereco" id="inputEndereco" ng-required="true" ng-maxlenth=10>
+                    </div>  
+
+                </div>
+
+                <div class="box-footer">
+                    <button ng-click="registraUsuario(usuario)" class="btn btn-primary" ng-disabled="cadastroNovoUsuarioForm.$invalid">Criar cadastro</button>
+                </div>
+
+                <div class="box-footer">
+                    <div class="alert alert-success" ng-show="sucesso">
+                        {{message}}
+                    </div> 
+
+                    <div class="alert alert-danger" ng-show="erro">
+                        {{message}}
+                    </div> 
+                </div>     
+
+            </form>
+        </div>

@@ -1,0 +1,26 @@
+{
+    "name": "loja",
+    "version": "1.0.0",
+    "description": "Loja Virtual ",
+    "main": "index.js",
+    "scripts": {
+      "test": "teste"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/rcarnauba/loja.git"
+    },
+    "keywords": [
+      "angular",
+      "node",
+      "loja",
+      "sqllite"
+    ],
+    "author": "Ricardo",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/rcarnauba/loja/issues"
+    },
+    "homepage": "https://github.com/rcarnauba/loja#readme"
+  }
+  
